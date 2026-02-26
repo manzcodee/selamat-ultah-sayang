@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Indira 💖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #f48fb1;
+            --dark-pink: #ad1457;
+            --light-pink: #fce4ec;
+            --paper-color: #fffbf0;
+            --gold: #d4af37;
+        }
+
+        body {
+            background-color: #fce4ec;
+            background-image: radial-gradient(#f8bbd0 20%, transparent 20%), radial-gradient(#f8bbd0 20%, transparent 20%);
+            background-position: 0 0, 25px 25px;
+            background-size: 50px 50px;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1500px;
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.6;
+            animation: floatCloud linear infinite;
+            z-index: 0;
+        }
+        
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        @keyframes floatCloud {
+            from { transform: translateX(-200px); }
+            to { transform: translateX(120vw); }
+        }
+
+        /* Book Container */
+        .book-wrapper {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            transition: transform 1s ease-in-out;
+            transform-style: preserve-3d;
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .book-wrapper {
+                width: 400px;
+                height: 550px;
+            }
+        }
+
+        /* The Book */
+        .book {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: default;
+            box-shadow: 20px 20px 30px rgba(173, 20, 87, 0.2);
+        }
+
+        /* Pages */
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: left center;
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+            backface-visibility: hidden;
+            border-radius: 5px 15px 15px 5px;
+        }
+
+        /* Front Cover */
+        .front-cover {
+            background-image: url('https://i.ibb.co.com/NdVwrqHC/Whats-App-Image-2026-02-24-at-18-55-06.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 30;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            border: 2px solid #fff;
+            box-shadow: inset 5px 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        .front-cover::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0; width: 15px;
+            background: linear-gradient(to right, rgba(255,255,255,0.4), transparent);
+            border-radius: 5px 0 0 5px;
+        }
+
+        /* Inside Left (Intro) */
+        .inside-left {
+            background-color: var(--paper-color);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f48fb1' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 19;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset -10px 0 20px rgba(0,0,0,0.05);
+            border-right: 1px solid #e0e0e0;
+        }
+
+        /* Inside Right (Photo Collection - The Base) */
+        .inside-right {
+            background-color: var(--paper-color);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f48fb1' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 10;
+            padding: 1.5rem;
+            box-shadow: inset 10px 0 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Poetry Sheet (The Flipping Page) */
+        .poetry-sheet {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: left center;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: 25; 
+            transform-style: preserve-3d;
+        }
+
+        .sheet-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            background-color: var(--paper-color);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f48fb1' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            border-radius: 5px 15px 15px 5px;
+            box-shadow: inset 10px 0 20px rgba(0,0,0,0.05), -5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Front of Sheet (Poetry) */
+        .sheet-face.front {
+            z-index: 2;
+        }
+
+        /* Back of Sheet (Message) */
+        .sheet-face.back {
+            transform: rotateY(180deg);
+            border-radius: 15px 5px 5px 15px;
+            box-shadow: inset -10px 0 20px rgba(0,0,0,0.05), 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Open Logic */
+        .book-open .book { transform: translateX(50%); }
+        .book-open .front-cover { transform: rotateY(-180deg); }
+        .book-open .inside-left { z-index: 30; }
+
+        /* Turn Page Logic (Poetry -> Photos) */
+        .book.page-turned .poetry-sheet {
+            transform: rotateY(-180deg);
+            z-index: 31;
+        }
+
+        /* VISIBILITY LOGIC: Hide photos until page is turned */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+            height: 80%;
+            padding: 5px;
+            opacity: 0; /* Hidden by default */
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Show photos only when page-turned class is active */
+        .book.page-turned .inside-right .gallery-container {
+            opacity: 1;
+            pointer-events: auto;
+            transition-delay: 0.8s; /* Wait for page to flip before showing */
+        }
+
+        /* Sticker Decorations */
+        .sticker {
+            position: absolute;
+            font-size: 2.5rem;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+            animation: wiggle 3s ease-in-out infinite;
+            z-index: 25;
+            pointer-events: none;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* Sparkle & Hearts */
+        .sparkle {
+            position: absolute;
+            pointer-events: none;
+            background: radial-gradient(circle, white, transparent);
+            border-radius: 50%;
+            animation: sparkleAnim 1s linear forwards;
+            z-index: 100;
+        }
+        @keyframes sparkleAnim {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .heart-float {
+            position: absolute;
+            color: #ec407a;
+            top: 100%;
+            animation: floatUp 6s linear infinite;
+            opacity: 0;
+            z-index: 1;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) scale(1.5) rotate(360deg); opacity: 0; }
+        }
+
+        /* Photo Styles */
+        .polaroid {
+            background: white;
+            padding: 6px 6px 15px 6px;
+            box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.3s;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.2) rotate(0deg) !important;
+            z-index: 50;
+            box-shadow: 5px 10px 15px rgba(0,0,0,0.3);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .gallery-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--dark-pink);
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        }
+
+        /* Buttons */
+        .action-btn {
+            background: var(--dark-pink);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(173, 20, 87, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 50;
+            margin: 5px;
+        }
+        .action-btn:hover {
+            transform: scale(1.05);
+            background: #d81b60;
+        }
+        .back-btn {
+            background: white;
+            color: var(--dark-pink);
+            border: 2px solid var(--dark-pink);
+            font-size: 0.8rem;
+            padding: 5px 12px;
+        }
+        
+        .letter-btn {
+            background: #f06292;
+            color: white;
+            font-size: 0.8rem;
+            padding: 6px 14px;
+            animation: pulseBtn 2s infinite;
+        }
+        
+        @keyframes pulseBtn {
+            0% { box-shadow: 0 0 0 0 rgba(240, 98, 146, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(240, 98, 146, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(240, 98, 146, 0); }
+        }
+
+        /* Poetry Styles */
+        .poetry-content {
+            text-align: center;
+            width: 100%;
+        }
+        .poem-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--dark-pink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dotted #f48fb1;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .poem-body {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        /* Custom Modal for Music/Start */
+        .music-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            transition: opacity 1s ease, z-index 1s step-end;
+        }
+        .music-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 90%;
+            width: 350px;
+            animation: popup 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        @keyframes popup {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Custom Lightbox for Photos */
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10005; /* Higher than letter modal */
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .lightbox.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        .lightbox img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            border: 4px solid white;
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 10006;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Letter Modal */
+        .letter-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10002;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+        }
+        .letter-paper {
+            background: #fffbf0;
+            width: 90%;
+            max-width: 500px;
+            max-height: 85vh; 
+            overflow-y: auto; 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 2px solid #f48fb1;
+            position: relative;
+            background-image: linear-gradient(#e1f5fe 1px, transparent 1px);
+            background-size: 100% 1.5em;
+            line-height: 1.5em;
+            animation: slideUp 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Scrollbar styling for letter */
+        .letter-paper::-webkit-scrollbar {
+            width: 8px;
+        }
+        .letter-paper::-webkit-scrollbar-thumb {
+            background-color: var(--primary-pink);
+            border-radius: 4px;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* WATER ANIMATION & FINAL PHOTOS */
+        .final-photos-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #f48fb1;
+            animation: fadeIn 1s ease;
+        }
+
+        .couple-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .couple-wrapper:hover {
+            transform: scale(1.05);
+        }
+
+        .couple-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* Animasi Air (Water Effect) */
+        .water-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 60%);
+            background-size: 200% 200%;
+            animation: waterFlow 3s infinite linear;
+            pointer-events: none;
+            border-radius: 10px;
+            z-index: 2;
+        }
+        
+        /* Ripple border effect */
+        .couple-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(173, 216, 230, 0.5);
+            border-radius: 10px;
+            box-shadow: inset 0 0 15px rgba(64, 196, 255, 0.3);
+            animation: rippleGlow 2s infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes waterFlow {
+            0% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        @keyframes rippleGlow {
+            from { box-shadow: inset 0 0 5px rgba(64, 196, 255, 0.2); }
+            to { box-shadow: inset 0 0 20px rgba(64, 196, 255, 0.6); }
+        }
+
+        .photo-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #ad1457;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .falling-text {
+            position: fixed;
+            top: -50px;
+            font-family: 'Dancing Script', cursive;
+            pointer-events: none;
+            z-index: 20001;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fallText {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MUSIC START OVERLAY -->
+    <div id="musicOverlay" class="music-overlay">
+        <div class="music-card">
+            <h2 class="font-['Dancing_Script'] text-3xl text-[#ad1457] mb-2">Untuk Indira 💖</h2>
+            <p class="text-gray-600 text-sm">
+                Ada lagu spesial buat kamu.<br>
+                <b>Play dulu lagu di bawah ini</b>, lalu tekan tombol Buka. 👇<br>
+                <span class="text-xs text-pink-400 italic">(Login Spotify agar lagu berputar full)</span>
+            </p>
+            
+            <iframe style="border-radius:12px; margin: 5px 0;" src="https://open.spotify.com/embed/track/1li6ZfdoeHY0STg2hU2pkE?utm_source=generator&autoplay=1" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+            <button onclick="startExperience()" class="bg-[#ad1457] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-[#880e4f] transition transform hover:scale-105 flex items-center justify-center gap-2 mx-auto mt-2">
+                <span>🎁</span> Buka Hadiah
+            </button>
+        </div>
+    </div>
+
+    <!-- PHOTO LIGHTBOX (MODAL) -->
+    <div id="photoLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightboxImg" src="" alt="Full View">
+    </div>
+
+    <!-- LETTER MODAL (LONG TEXT & FINAL SURPRISE) -->
+    <div id="letterModal" class="letter-modal">
+        <div class="letter-paper">
+            <!-- Close X (Optional, but main flow is via bottom buttons) -->
+            <!-- <button onclick="closeLetter()" class="absolute top-2 right-4 text-gray-400 hover:text-red-500 text-xl font-bold" style="position: absolute; float: right; z-index: 10;">&times;</button> -->
+            
+            <div id="typingArea" class="font-['Quicksand'] text-gray-700 text-sm md:text-base font-semibold mb-6"></div>
+            
+            <!-- FINAL SURPRISE SECTION (Initially Hidden) -->
+            <div id="finalSurprise" class="final-photos-container" style="display: none;">
+                <h3 class="font-['Dancing_Script'] text-2xl text-[#ad1457]">Special for You</h3>
+                
+                <!-- Rahman Photo -->
+                <div class="couple-wrapper" onclick="openLightbox('https://i.ibb.co.com/7txgcmH4/Whats-App-Image-2026-02-26-at-18-56-55.jpg')">
+                    <div class="water-overlay"></div>
+                    <img src="https://i.ibb.co.com/7txgcmH4/Whats-App-Image-2026-02-26-at-18-56-55.jpg" alt="Rahman">
+                </div>
+                <div class="photo-caption">Rahman</div>
+
+                <!-- Indira Photo -->
+                <div class="couple-wrapper" onclick="openLightbox('https://i.ibb.co.com/HTPG66Ns/Whats-App-Image-2026-02-26-at-18-57-50.jpg')">
+                    <div class="water-overlay"></div>
+                    <img src="https://i.ibb.co.com/HTPG66Ns/Whats-App-Image-2026-02-26-at-18-57-50.jpg" alt="Indira">
+                </div>
+                <div class="photo-caption">Indira</div>
+
+                <p class="text-center text-xs text-gray-500 italic mt-2">(Klik foto untuk memperbesar)</p>
+            </div>
+
+            <!-- BUTTONS FOOTER -->
+            <div id="letterFooter" class="mt-auto flex justify-center w-full pt-4 border-t border-pink-200">
+                <!-- Step 1 Button: Reveal Photos -->
+                <button id="btnReveal" onclick="revealPhotos()" class="bg-[#ad1457] text-white px-6 py-3 rounded-full font-bold shadow-md hover:bg-[#880e4f] transition transform hover:scale-105 flex items-center gap-2">
+                    <span>🌹</span> Lihat Kejutan
+                </button>
+
+                <!-- Step 2 Button: Close Everything (Hidden initially) -->
+                <button id="btnCloseAll" onclick="finishAndCloseBook()" class="bg-gray-600 text-white px-6 py-3 rounded-full font-bold shadow-md hover:bg-gray-800 transition transform hover:scale-105 flex items-center gap-2" style="display: none;">
+                    <span>📕</span> Tutup Buku
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Clouds -->
+    <div style="position: absolute; width: 100%; height: 100%; overflow: hidden; pointer-events: none;">
+        <div class="cloud" style="width: 120px; height: 40px; top: 10%; left: -10%; animation-duration: 25s;"></div>
+        <div class="cloud" style="width: 180px; height: 60px; top: 30%; left: -20%; animation-duration: 35s; animation-delay: 5s;"></div>
+        <div class="cloud" style="width: 100px; height: 35px; top: 70%; left: -15%; animation-duration: 20s; animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+
+    <div class="book-wrapper" id="bookWrapper">
+        
+        <!-- Decoration Stickers -->
+        <div class="sticker" style="top: -20px; left: -15px; animation-delay: 0s;">🎀</div>
+        <div class="sticker" style="bottom: -15px; right: -20px; animation-delay: 1s;">✨</div>
+
+        <div class="book" id="myBook">
+            <!-- FRONT COVER (Sampul Buku) -->
+            <div class="page front-cover" onclick="openBook()">
+                <!-- Overlay for readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-[5px_15px_15px_5px] pointer-events-none"></div>
+                
+                <div class="relative z-10 mb-10 text-center pointer-events-none">
+                    <h1 class="font-['Dancing_Script'] text-4xl text-white drop-shadow-lg mb-2">Indira</h1>
+                    <div class="text-white/80 text-sm font-light tracking-widest">TAP TO OPEN</div>
+                </div>
+            </div>
+
+            <!-- INSIDE LEFT (Dedication - Fixed Left Page) -->
+            <div class="page inside-left">
+                <div class="text-center p-6 border-4 border-double border-pink-200 h-[90%] w-[90%] flex flex-col justify-center items-center bg-white/50">
+                    <div class="text-5xl mb-4 opacity-50">💌</div>
+                    <h2 class="font-['Dancing_Script'] text-2xl text-[#ad1457] mb-2">Hai, Cantik!</h2>
+                    <p class="text-gray-600 text-sm italic leading-relaxed">
+                        "Terima kasih sudah menjadi<br>alasan aku tersenyum<br>hari ini."
+                    </p>
+                </div>
+            </div>
+
+            <!-- LEMBAR PERTAMA: PUISI (Flippable Page) -->
+            <div class="page poetry-sheet">
+                
+                <!-- FRONT SIDE: Poetry -->
+                <div class="sheet-face front">
+                    <div class="poetry-content">
+                        <h3 class="poem-title">Tentang Kamu</h3>
+                        <p class="poem-body">
+                            Di matamu, aku menemukan teduh,<br>
+                            Di senyummu, duniaku tak lagi gaduh.<br>
+                            Terima kasih telah menjadi bagian terindah,<br>
+                            Dalam kisahku yang kini merekah.
+                        </p>
+                        
+                        <button class="action-btn" onclick="nextPage(event)">
+                            Lihat Koleksi Foto 📸
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BACK SIDE: Apology Message (Visible when flipped) -->
+                <div class="sheet-face back">
+                    <div class="h-full w-full flex flex-col justify-center items-center p-4 border-2 border-dashed border-pink-300 rounded-lg">
+                        <h3 class="font-['Dancing_Script'] text-2xl text-[#ad1457] mb-4">Untuk Kaka...</h3>
+                        <p class="font-['Quicksand'] text-sm text-gray-700 leading-relaxed italic text-center mb-4">
+                            Maaf ya Ka, Dede cuma bisa kasih hal kecil ini.
+                            <br><br>
+                            Dede minta maaf kalau belum bisa kasih effort yang lebih besar atau hadiah yang mewah. Cuma web sederhana ini yang bisa Dede buat dengan kemampuan Dede sekarang.
+                            <br><br>
+                            Semoga Kaka suka ya, ini tulus dari hati Dede buat Kaka. 💖
+                        </p>
+                        <div class="text-3xl animate-pulse">🥺👉👈</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- LEMBAR KEDUA: FOTO KOLEKSI (Bottom Layer) -->
+            <div class="page inside-right">
+                <h3 class="gallery-title">Our Moments</h3>
+                <div class="gallery-container">
+                    
+                    <!-- Photos -->
+                    <div class="polaroid" style="transform: rotate(-3deg);" onclick="openLightbox('https://i.ibb.co.com/208VQggd/Whats-App-Image-2026-02-26-at-17-34-17.jpg')">
+                        <img src="https://i.ibb.co.com/208VQggd/Whats-App-Image-2026-02-26-at-17-34-17.jpg" alt="Photo 1">
+                    </div>
+
+                    <div class="polaroid" style="transform: rotate(4deg);" onclick="openLightbox('https://i.ibb.co.com/V0mVykdS/Whats-App-Image-2026-02-26-at-17-34-17-1.jpg')">
+                        <img src="https://i.ibb.co.com/V0mVykdS/Whats-App-Image-2026-02-26-at-17-34-17-1.jpg" alt="Photo 2">
+                    </div>
+
+                    <div class="polaroid" style="transform: rotate(-2deg);" onclick="openLightbox('https://i.ibb.co.com/SwGwmL0j/Whats-App-Image-2026-02-26-at-17-34-18.jpg')">
+                        <img src="https://i.ibb.co.com/SwGwmL0j/Whats-App-Image-2026-02-26-at-17-34-18.jpg" alt="Photo 3">
+                    </div>
+
+                    <div class="polaroid" style="transform: rotate(3deg);" onclick="openLightbox('https://i.ibb.co.com/qLms7t5L/Whats-App-Image-2026-02-26-at-17-34-24.jpg')">
+                        <img src="https://i.ibb.co.com/qLms7t5L/Whats-App-Image-2026-02-26-at-17-34-24.jpg" alt="Photo 4">
+                    </div>
+
+                </div>
+                
+                <!-- Updated Button Group -->
+                <div class="flex gap-2 mt-4 z-50">
+                    <button class="action-btn back-btn" onclick="prevPage(event)">
+                        ⬅ Kembali
+                    </button>
+                    <button class="action-btn letter-btn" onclick="openLetter(event)">
+                        Baca Surat Kecil 💌
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const book = document.getElementById('myBook');
+        const bookWrapper = document.getElementById('bookWrapper');
+        let isOpen = false;
+
+        // Function to start the experience (Music Gatekeeper)
+        function startExperience() {
+            const overlay = document.getElementById('musicOverlay');
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none'; 
+        }
+
+        // Function to Open the Book (Clicked on Cover)
+        function openBook() {
+            if (!isOpen) {
+                isOpen = true;
+                bookWrapper.classList.add('book-open');
+                
+                // Burst of sparkles
+                for(let i=0; i<30; i++) {
+                    setTimeout(() => {
+                        createSparkleAt(
+                            window.innerWidth/2 + (Math.random()*300 - 150), 
+                            window.innerHeight/2 + (Math.random()*300 - 150)
+                        );
+                    }, i*30);
+                }
+
+                setTimeout(() => {
+                    startHeartRain();
+                }, 500);
+            }
+        }
+
+        // Function to Close the Book
+        function closeBook() {
+            if (isOpen) {
+                isOpen = false;
+                bookWrapper.classList.remove('book-open');
+                // Optional: Reset page turn
+                setTimeout(() => {
+                    book.classList.remove('page-turned');
+                }, 500);
+            }
+        }
+
+        // Function to Turn Page (Poetry -> Photos)
+        function nextPage(e) {
+            e.stopPropagation(); // Prevent bubbling
+            book.classList.add('page-turned');
+        }
+
+        // Function to Turn Back (Photos -> Poetry)
+        function prevPage(e) {
+            e.stopPropagation(); // Prevent bubbling
+            book.classList.remove('page-turned');
+        }
+
+        // LIGHTBOX FUNCTIONS
+        function openLightbox(imageUrl) {
+            const lightbox = document.getElementById('photoLightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = imageUrl;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('photoLightbox');
+            lightbox.classList.remove('active');
+            // Logic: Since lightbox is z-index 10005 and Letter Modal is 10002,
+            // closing lightbox naturally reveals the Letter Modal underneath it.
+            // No extra code needed to "go back" to letter modal.
+        }
+
+        // LETTER TYPING FUNCTION (LONG TEXT)
+        const longText = `Dede mau minta maaf sebesar-besarnya ke kaka. Mungkin selama ini dede banyak salah, banyak kurangnya, banyak hal yang bikin kaka capek, kecewa, atau bahkan ngerasa sendirian. Kadang dede terlalu egois, terlalu ngikutin perasaan sendiri tanpa mikirin gimana perasaan kaka. Kadang dede ngomong tanpa mikir dulu, bercanda kelewatan, atau malah diem pas harusnya jelasin. Dede sadar, jadi orang yang baik itu bukan cuma soal sayang, tapi juga soal sikap, tanggung jawab, dan cara ngejaga hati kaka.
+
+Dede minta maaf kalau pernah bikin kaka ngerasa nggak dihargai. Maaf kalau pernah bikin kaka ngerasa kurang diperhatiin. Maaf kalau sikap dede ada yang nyakitin, walaupun mungkin nggak sengaja. Percaya atau nggak, setiap kali dede sadar sudah bikin kaka sedih, hati dede juga ikut nggak tenang. Dede nggak pernah ada niat sedikit pun buat nyakitin kaka. Kalau sampai itu kejadian, itu murni karena dede masih banyak belajar.
+
+Dede juga mau bilang terima kasih. Terima kasih karena kaka masih bertahan sampai sekarang. Terima kasih karena kaka masih sabar ngadepin sifat dede yang kadang keras kepala, kadang manja, kadang susah dikasih tau. Terima kasih karena kaka selalu ada, bahkan di saat dede lagi nggak baik-baik aja. Nggak semua orang mau tetap tinggal waktu keadaan lagi ribet. Tapi kaka tetap di sini. Itu hal yang nggak pernah dede anggap sepele.
+
+Dede bersyukur banget punya kaka. Bersyukur karena dari sekian banyak orang di dunia ini, dede bisa kenal, bisa deket, bisa punya hubungan yang berarti sama kaka. Kehadiran kaka itu bukan hal kecil buat dede. Cara kaka peduli, cara kaka ngingetin, cara kaka marah karena sayang, itu semua bikin dede ngerasa dihargai dan diperjuangin. Kadang dede mikir, apa dede sudah cukup baik buat dapetin semua itu? Dan setiap kali kepikiran begitu, dede sadar harus jadi pribadi yang lebih baik lagi.
+
+Punya kaka itu bukan cuma soal status atau panggilan. Buat dede, punya kaka itu soal rasa aman. Soal tempat pulang ketika dunia lagi nggak ramah. Soal seseorang yang bisa diajak cerita hal receh sampai hal serius. Soal seseorang yang kehadirannya bikin hari biasa jadi terasa lebih berarti. Dede nggak mau kehilangan itu cuma karena kesalahan yang harusnya bisa diperbaiki.
+
+Dede tahu hubungan itu nggak selalu mulus. Ada beda pendapat, ada salah paham, ada emosi yang kadang nggak terkontrol. Tapi dede percaya, selama masih ada kemauan buat saling ngerti dan saling perbaiki diri, semuanya bisa dilewatin. Dede nggak janji bakal jadi sempurna, tapi dede janji bakal terus berusaha jadi lebih baik untuk kaka. Lebih sabar, lebih dewasa, lebih peka.
+
+Kalau suatu saat dede bikin kaka kecewa lagi, tolong ingetin dede baik-baik. Jangan dipendem sendiri. Dede lebih takut kehilangan kaka daripada harus ngaku salah. Dede lebih milih dimarahin tapi tetap sama-sama daripada diem-diem menjauh. Karena buat dede, kaka itu berharga.
+
+Sekali lagi, dede minta maaf untuk semua salah yang pernah ada. Dan dede berterima kasih, sebesar-besarnya, karena sudah punya kaka dalam hidup dede. Semoga ke depan dede bisa lebih pantas buat berdiri di samping kaka, bukan cuma sebagai seseorang yang sayang, tapi juga sebagai seseorang yang benar-benar bisa diandalkan.`;
+
+        let typingInterval;
+
+        function openLetter(e) {
+            if(e) e.stopPropagation();
+            const modal = document.getElementById('letterModal');
+            const typingArea = document.getElementById('typingArea');
+            const paper = document.querySelector('.letter-paper');
+            const btnReveal = document.getElementById('btnReveal');
+            const btnCloseAll = document.getElementById('btnCloseAll');
+            const finalSurprise = document.getElementById('finalSurprise');
+
+            // Reset State
+            modal.style.display = 'flex';
+            typingArea.innerHTML = ''; 
+            typingArea.classList.add('typing-cursor');
+            btnReveal.style.opacity = '0';
+            btnReveal.style.display = 'flex';
+            btnCloseAll.style.display = 'none';
+            finalSurprise.style.display = 'none';
+            
+            let i = 0;
+            clearInterval(typingInterval);
+            
+            typingInterval = setInterval(() => {
+                if (i < longText.length) {
+                    if(longText.charAt(i) === '\n') {
+                        typingArea.innerHTML += '<br>';
+                    } else {
+                        typingArea.innerHTML += longText.charAt(i);
+                    }
+                    i++;
+                    paper.scrollTop = paper.scrollHeight;
+                } else {
+                    clearInterval(typingInterval);
+                    typingArea.classList.remove('typing-cursor');
+                    btnReveal.style.transition = 'opacity 1s ease';
+                    btnReveal.style.opacity = '1'; 
+                }
+            }, 5); // Speed of typing
+        }
+
+        // Function to reveal photos inside the letter
+        function revealPhotos() {
+            const finalSurprise = document.getElementById('finalSurprise');
+            const btnReveal = document.getElementById('btnReveal');
+            const btnCloseAll = document.getElementById('btnCloseAll');
+            const paper = document.querySelector('.letter-paper');
+
+            finalSurprise.style.display = 'flex';
+            btnReveal.style.display = 'none'; // Hide "Reveal" button
+            btnCloseAll.style.display = 'flex'; // Show "Close Book" button
+
+            // Scroll to bottom to show photos
+            setTimeout(() => {
+                paper.scrollTo({ top: paper.scrollHeight, behavior: 'smooth' });
+                startLoveTextRain(); // Start falling text effect
+            }, 100);
+        }
+
+        // Function to Finish everything and Close Book
+        function finishAndCloseBook() {
+            const modal = document.getElementById('letterModal');
+            
+            // Fade out modal
+            modal.style.transition = 'opacity 1s ease';
+            modal.style.opacity = '0';
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modal.style.opacity = '1'; // Reset for next time
+                closeBook(); // Animate book closing
+            }, 1000);
+        }
+
+        // "I Love You" Text Rain Function
+        function startLoveTextRain() {
+            const colors = ['#f8bbd0', '#f48fb1', '#f06292', '#ec407a', '#ff80ab'];
+            const phrases = ["I Love You", "Aku Sayang Kamu", "Love You ❤️", "Indira 💖", "Forever"];
+            
+            // Limit iterations to prevent browser lag
+            let count = 0;
+            const rainInterval = setInterval(() => {
+                if(count > 30) { clearInterval(rainInterval); return; }
+                
+                const text = document.createElement('div');
+                text.classList.add('falling-text');
+                text.innerText = phrases[Math.floor(Math.random() * phrases.length)];
+                
+                text.style.left = Math.random() * 90 + 5 + 'vw';
+                text.style.color = colors[Math.floor(Math.random() * colors.length)];
+                text.style.fontSize = Math.random() * 20 + 15 + 'px';
+                text.style.animationDuration = Math.random() * 3 + 3 + 's'; // 3-6 seconds fall
+                text.style.animationName = 'fallText';
+                
+                document.body.appendChild(text);
+                count++;
+
+                setTimeout(() => {
+                    text.remove();
+                }, 6000);
+            }, 300); 
+        }
+
+        // Mouse Sparkle Effect
+        document.addEventListener('mousemove', function(e) {
+            if(Math.random() > 0.9) { 
+                createSparkleAt(e.pageX, e.pageY);
+            }
+        });
+
+        function createSparkleAt(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = Math.random() * 10 + 5 + 'px';
+            sparkle.style.height = sparkle.style.width;
+            sparkle.style.background = `hsl(${Math.random() * 60 + 300}, 100%, 80%)`; // Pink/Purple hues
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        // Background Hearts Rain
+        function startHeartRain() {
+            const container = document.getElementById('hearts-container');
+            const colors = ['#f8bbd0', '#f48fb1', '#f06292', '#ec407a'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-float');
+                heart.innerHTML = Math.random() > 0.5 ? '❤' : '🌸';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+                container.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 8000);
+            }, 400);
+        }
+    </script>
+</body>
+</html>
